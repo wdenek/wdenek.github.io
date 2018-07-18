@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Technical blog</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on Technical blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Jul 2018 20:46:39 +0200</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Second Post</title>
+      <link>http://example.org/posts/second-post/</link>
+      <pubDate>Wed, 18 Jul 2018 20:46:39 +0200</pubDate>
+      
+      <guid>http://example.org/posts/second-post/</guid>
+      <description>First Maecenas sagittis nibh dapibus tortor mollis, nec rutrum nisl vulputate. Proin id venenatis lectus, et imperdiet arcu. Aliquam viverra efficitur pellentesque. Donec sagittis vestibulum arcu, ac aliquam dui cursus vitae. Donec eleifend orci metus, non eleifend arcu venenatis vel. Donec sit amet magna posuere, tempor ante nec, vehicula metus. Ut et dui turpis. Etiam efficitur, tortor a fringilla accumsan, tellus urna blandit lacus, a convallis velit elit id dolor.</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>http://example.org/posts/first-post/</link>
+      <pubDate>Wed, 18 Jul 2018 13:42:39 +0200</pubDate>
+      
+      <guid>http://example.org/posts/first-post/</guid>
+      <description>Let me get your attention Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non tempus massa. Aenean in egestas nulla. Nulla gravida eleifend nibh, at varius ipsum cursus a. Quisque varius odio velit, id accumsan dui convallis sit amet. Praesent placerat posuere justo. Fusce ut eros eget nibh imperdiet tristique. Vivamus et neque eu sem placerat rutrum. Nulla fringilla malesuada enim. Donec ante ante, semper in ex quis, convallis dignissim metus.</description>
+    </item>
+    
+  </channel>
+</rss>
