@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technical blog</title>
+    <link>https://blog.wiljag.nl/</link>
+    <description>Recent content on Technical blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jul 2018 16:46:22 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.wiljag.nl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introductie Akka</title>
+      <link>https://blog.wiljag.nl/posts/akka-introductie/</link>
+      <pubDate>Fri, 27 Jul 2018 16:46:22 +0200</pubDate>
+      
+      <guid>https://blog.wiljag.nl/posts/akka-introductie/</guid>
+      <description>Introductie actor model Resources Wanneer we kijken naar de hardware en dan vooral de processoren die we tegenwoordig gebruiken dan zien we dat de clocksnelheid van die processoren in onze machines niet significant toeneemt. Als we echter kijken naar het aantal cores dat in onze processoren zit dan zien we dat die wel toenemen. We hebben dus de mogelijkheid om onze software verwerking te optimaliseren mits we gebruik maken van de resources die we tot onze beschikking hebben.</description>
+    </item>
+    
+  </channel>
+</rss>

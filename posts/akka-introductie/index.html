@@ -1,0 +1,261 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>Technical blog</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" />
+  <meta name="generator" content="Hugo 0.44" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">Technical blog</a>
+            </h1>
+
+      <ul id="social-media">
+             
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Introductie Akka</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2018-07-27T16:46:22&#43;02:00">Jul 27, 2018</time>
+        </li>
+        
+        
+
+        
+
+        <li>11 min read</li>
+    </ul>
+</aside>
+    
+
+    
+
+<h1 id="introductie-actor-model">Introductie actor model</h1>
+
+<h2 id="resources">Resources</h2>
+
+<p>Wanneer we kijken naar de hardware en dan vooral de processoren die we tegenwoordig gebruiken dan zien we dat de clocksnelheid van die processoren in onze machines niet significant toeneemt. Als we echter kijken naar het aantal cores dat in onze processoren zit dan zien we dat die wel toenemen. We hebben dus de mogelijkheid om onze software verwerking te optimaliseren mits we gebruik maken van de resources die we tot onze beschikking hebben. En hebben we niet genoeg aan een processor dan is er nog de mogelijkheid om de verwerkingen te verdelen over een cluster van machines.</p>
+
+<h2 id="optimalisatie">Optimalisatie</h2>
+
+<p>Het optimaal gebruik maken van deze resources, hetzij processoren (scale-up), het zij in een cluster (scale-out), is echter niet eenvoudig. Wanneer je de cores in een processor optimaal wil gaan gebruiken krijg je te maken met threading, het synchorniseren van die treads en locking. Mijn verleden heeft in softwareontwikkeling heeft me geleerd dat dit niet eenvoudig is en dat een foutje snel gemaakt is, maar niet snel opgelost. Dit zijn technisch moeilijke problemen die niet voor iedereen weggelegd zijn om op te lossen. Bovendien, en dat is misschien wel het grootste probleem, ben je bezig met het oplossen van een technisch probleem in plaats van een business probleem.</p>
+
+<p>Heel kort door de bocht genomen is dit wat het actor model voor je oplost. Het zorgt voor een optimale verdeling van de verwerkingen in je oplossing over de beschikbare resources. Een voorwaarde is wel dat je de oplossing kan opdelen in kleine eenheden van verwerking. Deze kleine eenheid van verwerking noemen we een actor.</p>
+
+<h2 id="actors">Actors</h2>
+
+<p>Een actor is dus een kleine eenheid van verwerking. Een actor heeft een drietal kenmerken:</p>
+
+<ol>
+<li>Hij kan iets verwerken;</li>
+<li>Hij kan state bijhouden;</li>
+<li>Hij kan communiceren met andere actoren door middel van berichten;</li>
+</ol>
+
+<p>Een actor heeft dus iets weg van een object in object oriëntatie. Maar een groot verschil is dat actoren elkaar niet direct kunnen aanspreken maar dit doen door middel van berichten. Hier komen we later op terug.</p>
+
+<h2 id="one-actor-is-no-actor">One actor is no actor</h2>
+
+<p>Zoals ik net opmerkte maak je pas optimaal gebruik van het actor system wanneer je gebruik maakt van meerdere actoren. Deze actoren leven samen in een ecosysteem en dit systeem wordt een actor system genoemd. Deze actoren kunnen samenwerken.</p>
+
+<h2 id="communicatie">Communicatie</h2>
+
+<p>Om te kunnen samenwerken moeten actoren met elkaar kunnen communiceren. Dit doen ze door elkaar messages te sturen. Elke actor heeft een mailbox. De mailbox kan je je voorstellen als een first-in-first-out queue waar de berichten op binnenkomen. De actor verwerkt de berichten uit deze mailbox een voor een. Een actor is dus single threaded. Heb je tien messages die je tegelijkertijd verwerkt wil hebben? Dan moet je dus tien actoren aanmaken en deze allemaal een bericht sturen.</p>
+
+<h1 id="akka-net-introductie">Akka.NET introductie</h1>
+
+<p>Akka.NET is een opensource framework dat een port is van Akka dat gebouwd is voor de JVM. Akka is een implementatie van het actor model zoals ik dat net heb uitgelegd. Het blijft als framework dichtbij de theorie zoals we dat net besproken hebben. Veel van de concepten uit de theorie komen dus ook terug in het framework.</p>
+
+<h2 id="extensies">Extensies</h2>
+
+<p>Akka is een framework dat uitbreidbaar is. De meest basis versie geeft je een implementatie van het actor model. Wil je meer dan zijn er extensies beschikbaar. De vergelijking met .NET core gaat hier op. Voorbeelden van extensies zijn Akka.Persistence wat ervoor zorgt dat de state van je actoren gepersisteerd wordt waar dit standaard in-memory is. Ook zijn er Akka.Remote en Akka.Cluster die je helpen een cluster op te zetten om je actoren over te verdelen. Deze extensies zijn beschikbaar in de vorm van nuget packages.</p>
+
+<h2 id="testbaar">Testbaar</h2>
+
+<p>Natuurlijk zijn actoren ook testbaar en hier is een framework extensie voor beschikbaar genaamd Akka.TestKit. De Akka.TestKit is een basis library voor het testen met Akka. Er zijn aanvullende libraries beschikbaar voor je favoriete unit-test framework: MSTest, XUnit, NUnit, etc.</p>
+
+<h2 id="hosting">Hosting</h2>
+
+<p>Je kunt Akka.NET gebruiken in alle typen .NET solutions:
+- CommandLine
+- Windows Services
+- ASP.NET Solutions</p>
+
+<p>Een voorbeeld van een actor system in een commandline solution zie je hier.</p>
+
+<p>{laat voorbeeld zien}</p>
+
+<p>Verder is het handig om vast even te kijken hoe een actor geïmplementeerd wordt. Dat zie je aan de hand van dit voorbeeld.   Je ziet dat in de constructor handlers gekoppeld worden aan een type bericht. Dat betekent dat wanneer dit type bericht binnenkomt deze handler aangeroepen wordt om dit bericht af te handelen. Wat als er nu een bericht binnenkomt waar geen handler voor geregistreerd is? No worries, die worden genegeerd en de actor heeft daar verder geen last van.</p>
+
+<h1 id="communication-model">Communication model</h1>
+
+<p>Zoals ik eerder aangaf communiceren actoren met elkaar door middel van messages. In het geval van Akka.NET zijn messages niets meer dan POCO’s. Ze overerven niet van een bepaalde base-class.</p>
+
+<h2 id="actorrefs">ActorRefs</h2>
+
+<p>Een actor stuurt een andere actor dus een message. Deze message wordt afgeleverd in de mailbox van de doel-actor. Deze doel actor verwerkt het bericht volgens het first-in-first-out principe. In Akka.NET hebben actoren geen directe in-memory pointers naar elkaar. Dat kan ook niet omdat actoren niet in hetzelfde proces hoeven te leven. Ze kunnen gedistribueerd zijn in cluster. In plaats daarvan praten ze door middel van zogenaamde ActorRefs. Dat is een soort proxy naar een actor.
+Deze ActorRef kan je op een aantal manieren bemachtigen:</p>
+
+<ul>
+<li>Bij het aanmaken van een actor krijg je een ActorRef naar de gecreëerde actor terug</li>
+<li>Je kan een ActorRef bouwen door het adres van de doel actor op te geven. Dit kan door middel van een XPath like expressie.</li>
+</ul>
+
+<p>Er is een reden dat je een ActorRef kan bouwen op basis van een adres. Dit is omdat actors in hetzelfde proces kunnen leven maar ook in een proces op een andere machine. Als actor die gebruik maakt van de betreffende ActorRef merk je hier niets van. Dit is een belangrijk concept en wordt location transparency genoemd.</p>
+
+<h2 id="tell-en-ask">TELL en ASK</h2>
+
+<p>Wanneer je dan de beschikking hebt over een ActorRef kan je communiceren met de actor waarnaar deze ActorRef verwijst. Dat kan je op twee manieren doen:</p>
+
+<ul>
+<li>Via de TELL methode</li>
+<li>Via de ASK methode</li>
+</ul>
+
+<h2 id="tell">TELL</h2>
+
+<p>De TELL methode is “fire-and-forget”. Dit is het beste voor performance en schaalbaarheid. Er wordt niet gewacht op een antwoord. Je stuurt een message en gaat verder.</p>
+
+<h2 id="ask">ASK</h2>
+
+<p>De ASK methode is request-response. We sturen een bericht en verwachten, door de async methode, op enig moment een bericht terug. Wanneer we deze ASK methode gaan awaiten dan blokkeren we  deze specifieke actor totdat het bericht terug is. Dit betekent dat deze actor geen andere berichten uit zijn mailbox kan afhandelen totdat het bericht terug is. Vanuit schaalbaarheid is dit niet handig. Daarom is er een betere methode om om te gaan met de ASK methode. Dat laat ik zien aan de hand van een voorbeeld.</p>
+
+<p>{laat voorbeeld van async ASK zien}</p>
+
+<h2 id="async">Async</h2>
+
+<p>In dit voorbeeld zien we dat naar de Bartender actor een bericht gestuurd wordt door middel van de ASK methode. Dat betekent dat we een antwoord terug verwachten. In dit geval een lijst van beschikbare biertjes op de tap. Op zich is dit een valide oplossing en worden de resources van de Customer actor wel weer vrijgegeven maar de Customer actor zelf is nog steeds geblocked. Dat betekent dat deze Customer niets kan doen totdat Bartender actor een antwoord heeft gegeven. Terwijl er misschien wel messages in zijn mailbox zijn om te verwerken. Vanwege deze beperking kan je ook de volgende implementatie overwegen:</p>
+
+<p>{laat voorbeeld van PipeTo zien}</p>
+
+<h2 id="pipeto-pattern">PipeTo pattern</h2>
+
+<p>In deze oplossing zien we dat we een vraag stellen aan een Bartender en dat we het antwoord, door middel van de Akka.NET extension method genaamd PipeTo, in onze eigen mailbox stoppen. Op dit moment wordt deze Customer weer vrijgegeven en kan andere berichten verwerken. Op het moment dat het antwoord van de Bartender actor binnenkomt wordt deze in de mailbox van de Customer actor gestopt en wordt daarna vanzelf geprocessed als deze aan de beurt is.</p>
+
+<h1 id="lifecycle">Lifecycle</h1>
+
+<p>Een actor in Akka.NET is altijd onderdeel van een hiërarchie. Een actor kan andere actoren aanmaken en wordt daarmee de parent, met bijbehorende verantwoordelijkheden, van de onderliggende actoren.</p>
+
+<h2 id="guardians">Guardians</h2>
+
+<p>Wanneer we een Actor System aanmaken dan worden er standaard drie actoren aangemaakt. De bovenste actor wordt de /Root guardian genoemd en heeft meteen de supervisie over twee onderliggende actoren: de /User guardian en de /System guardian.</p>
+
+<p>De system guardian is er voor logging en deadletter queues.</p>
+
+<p>Onder de /User guardian komen de actoren te hangen die aangemaakt worden door jou als developer. In ons voorbeeld van de bar komen hier dus de Bartender actor en de Customer actor onder te hangen.</p>
+
+<h2 id="parent-child-en-supervision">Parent-child en supervision</h2>
+
+<p>In Akka.NET is er dus sprake van een parent-child relatie. De parent actor heeft dus supervision over de onderliggende actoren en kan dus beslissen hoe om te gaan met exceptions die optreden in de onderliggende actoren. De wijze waarop zo’n actor daarmee omgaat noemen we een Strategy.</p>
+
+<h2 id="strategies">Strategies</h2>
+
+<p>Er zijn verschillende strategies die een parent actor kan hanteren. Zo is er de one-for-one strategy die dat alle onderliggende kinderen apart wordt behandeld. Er is ook de one-for-all strategy en deze zorgt ervoor dat alle kinderen gelijk worden behandeld.</p>
+
+<p>{laat voorbeeld zien}</p>
+
+<p>Hier zien jullie een voorbeeld van de configuratie van een dergelijke strategie. Hierin staat aangegeven dat wanneer een actor 10 maal binnen 10 seconden crasht deze wordt gestopt.</p>
+
+<h2 id="poison-pill">Poison pill</h2>
+
+<p>Zoals eerder gezegd is een parent actor verantwoordelijk voor de  lifecycle van de door hem gecreëerde kinderen. Dat betekent dat deze parent actor er ook voor kan kiezen om deze child actors op te ruimen. Dat kan door een actor een zogenaamde poison-pill message te sturen. Deze komt in de mailbox van de desbetreffende actor en op het moment dat rest van van de mailbox afgehandeld is en deze message aan de beurt is wordt deze actor gestopt.</p>
+
+<h1 id="state">State</h1>
+
+<h2 id="in-memory">In memory</h2>
+
+<p>Zoals ik eerder al vertelde is een van de eigenschappen van een actor dat hij state kan bijhouden. De default manier in Akka.NET waarop een actor state bijhoudt is in-memory. Dat betekent dus ook dat wanneer een actor crasht en gerestart wordt of dat wanneer het bovenliggende proces stopt de state weg is. Dat kan prima passen in de oplossing die je aan het implementeren bent maar soms heb je de noodzaak voor persistence.</p>
+
+<h2 id="persistence">Persistence</h2>
+
+<p>Wanneer je toch persistence wilt in Akka.NET dan heb je de Akka.Persistence package nodig die je via NuGet kunt binnenhalen. Deze package geeft je een persistent actor. De manier waarop dit binnen Akka.Persistence gebeurt is via Event Sourcing.</p>
+
+<h2 id="event-sourcing">Event sourcing</h2>
+
+<p>Event Sourcing betekent dat niet de huidige state van een actor wordt opgeslagen maar dat alle berichten die een actor verwerkt heeft opgeslagen worden. Om weer tot de laatste stand van zaken te komen wanneer een actor worden alle berichten uit de data-store gehaald en weer afgespeeld op de betreffende actor. Deze reeks van berichten wordt een journal genoemd. Waarom event sourcing zou een volgende vraag kunnen zijn? De reden is dat dit een append only log is. Er worden alleen records toegevoegd aan dit journal. Eenmaal geschreven worden ze nooit meer gewijzigd. Dit lijdt tot een snelle transactie afhandeling, precies wat we nodig hebben.</p>
+
+<h2 id="snapshots">Snapshots</h2>
+
+<p>De opmerking die ik op dit punt vaak krijg is dat dit een langzame en erg intensieve manier van inladen van actors is. Dat klopt. Wanneer je een actor hebt die 10.000 berichten verwerkt heeft dan moet ik al deze 10.000 berichten ophalen en weer verwerken om tot de laatste stand van zaken te komen. Daarom zijn er snapshots.</p>
+
+<p>Snapshots is een recent punt in tijd waarop we de state vastleggen. We zouden dit bijvoorbeeld om de 100 messages kunnen doen. Dat betekent dat we in geval van een restore het meest recente snapshot pakken en dan nog maximaal 100 events moeten afspelen om tot de meest recente state te komen.</p>
+
+<h2 id="data-providers">Data providers</h2>
+
+<p>Er zijn diverse dataproviders beschikbaar vanuit Akka.NET. Zo zijn er providers voor Microsoft SQL server en MySQL maar ook Cassandra en MongoDB. Het is zo flexibel dat je de journals in SQL Server zou kunnen onderbrengen en de snapshots in MongoDB. Er is op dit moment zelfs een dataprovider voor ServiceFabric.</p>
+
+<h1 id="deployment">Deployment</h1>
+
+<p>Zoals ik eerder ook al aanstipte is deployment in Akka.NET heel fexibel. Overal waar je een .NET proces kan laten draaien kan je Akka.NET toepassen. Dat betekent dus CommandLine, Windows services, WebAPI en MVC toepassingen of in Azure. Er zijn dus weinig beperkingen aan de deployment van Akka.NET.</p>
+
+<h2 id="cluster">Cluster</h2>
+
+<p>Mocht je aan de slag willen met clusters en nodes in je solution dan zijn er dus Akka packages beschikbaar die je hierij kunnen helpen.</p>
+
+<h2 id="ontwerpen">Ontwerpen</h2>
+
+<p>Verder wil ik nog de tip meegeven om voordat je begint met implementeren van je actor system te beginnen met een ontwerp. Een actor system laat zich makkelijk ontwerpen met bolletjes voor actoren en pijltjes voor messages. Dit kan je veel refactoren besparen. Daarnaast komt het ten goede aan het onderhoud van je applicatie omdat het moeilijk is de precieze structuur van je actor system te achterhalen wanneer het eenmaal geimplementeerd is. Het dient in dat geval als documentatie van je actor system. Je zou gebruik kunnen maken van de tool en taal genaamd ‘dot’ waarmee je je ontwerp kan definieren en genereren aan de hand van een definitie. Deze kan je hierdoor ook in source control inchecken.</p>
+
+<h2 id="design-patterns">Design patterns</h2>
+
+<p>Daarnaast wil ik je wijzen op het feit dat er al veel design patterns specifiek voor actor systems beschikbaar zijn. Denk aan het Fan-out pattern of het MapReduce pattern. Naast actor system specifieke design patterns kan je vaak ook gebruik maken van de klassieke design patterns uit het bekende Gang of Four boek. Doe daar je voordeel mee.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> | 
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://blog.wiljag.nl/index.xml">Subscribe</a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+</body>
+
+</html>
