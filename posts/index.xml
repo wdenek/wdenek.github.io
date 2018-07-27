@@ -6,27 +6,18 @@
     <description>Recent content in Posts on Technical blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Jul 2018 20:46:39 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 27 Jul 2018 16:46:22 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.wiljag.nl/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Second Post</title>
-      <link>https://blog.wiljag.nl/posts/second-post/</link>
-      <pubDate>Wed, 18 Jul 2018 20:46:39 +0200</pubDate>
+      <title>Introductie Akka</title>
+      <link>https://blog.wiljag.nl/posts/akka-introductie/</link>
+      <pubDate>Fri, 27 Jul 2018 16:46:22 +0200</pubDate>
       
-      <guid>https://blog.wiljag.nl/posts/second-post/</guid>
-      <description>First Maecenas sagittis nibh dapibus tortor mollis, nec rutrum nisl vulputate. Proin id venenatis lectus, et imperdiet arcu. Aliquam viverra efficitur pellentesque. Donec sagittis vestibulum arcu, ac aliquam dui cursus vitae. Donec eleifend orci metus, non eleifend arcu venenatis vel. Donec sit amet magna posuere, tempor ante nec, vehicula metus. Ut et dui turpis. Etiam efficitur, tortor a fringilla accumsan, tellus urna blandit lacus, a convallis velit elit id dolor.</description>
-    </item>
-    
-    <item>
-      <title>First Post</title>
-      <link>https://blog.wiljag.nl/posts/first-post/</link>
-      <pubDate>Wed, 18 Jul 2018 13:42:39 +0200</pubDate>
-      
-      <guid>https://blog.wiljag.nl/posts/first-post/</guid>
-      <description>Let me get your attention Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non tempus massa. Aenean in egestas nulla. Nulla gravida eleifend nibh, at varius ipsum cursus a. Quisque varius odio velit, id accumsan dui convallis sit amet. Praesent placerat posuere justo. Fusce ut eros eget nibh imperdiet tristique. Vivamus et neque eu sem placerat rutrum. Nulla fringilla malesuada enim. Donec ante ante, semper in ex quis, convallis dignissim metus.</description>
+      <guid>https://blog.wiljag.nl/posts/akka-introductie/</guid>
+      <description>Introductie actor model Resources Wanneer we kijken naar de hardware en dan vooral de processoren die we tegenwoordig gebruiken dan zien we dat de clocksnelheid van die processoren in onze machines niet significant toeneemt. Als we echter kijken naar het aantal cores dat in onze processoren zit dan zien we dat die wel toenemen. We hebben dus de mogelijkheid om onze software verwerking te optimaliseren mits we gebruik maken van de resources die we tot onze beschikking hebben.</description>
     </item>
     
   </channel>

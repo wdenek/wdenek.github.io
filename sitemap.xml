@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.wiljag.nl/posts/second-post/</loc>
-    <lastmod>2018-07-18T20:46:39+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.wiljag.nl/posts/first-post/</loc>
-    <lastmod>2018-07-18T13:42:39+02:00</lastmod>
+    <loc>https://blog.wiljag.nl/posts/akka-introductie/</loc>
+    <lastmod>2018-07-27T16:46:22+02:00</lastmod>
   </url>
   
   <url>
@@ -19,7 +14,7 @@
   
   <url>
     <loc>https://blog.wiljag.nl/posts/</loc>
-    <lastmod>2018-07-18T20:46:39+02:00</lastmod>
+    <lastmod>2018-07-27T16:46:22+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,7 +25,7 @@
   
   <url>
     <loc>https://blog.wiljag.nl/</loc>
-    <lastmod>2018-07-18T20:46:39+02:00</lastmod>
+    <lastmod>2018-07-27T16:46:22+02:00</lastmod>
     <priority>0</priority>
   </url>
   
